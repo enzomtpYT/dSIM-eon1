@@ -80,61 +80,128 @@
     }
   },
   "1m+": {
-    "Arcane": { "color": [110, 150, 255], "tolerance": 50,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/8/86/Arcane_Gif_25Fps.gif",
-    "rarity": 1000000},
-    "Gravitational": { "color": [81, 99, 255], "tolerance": 40,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/6/62/Gravitationalgif.gif",
-    "rarity": 2000000},
-    "Virtual": { "color": [76, 139, 255], "tolerance": 35,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/8/88/VirtualReworkCollection.gif",
-    "rarity": 2500000},
-    "Poseidon": { "color": [14, 97, 136], "tolerance": 35,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/d/db/PosEra7.gif",
-    "rarity": 4000000},
-    "Zeus": { "color": [255, 250, 211], "tolerance": 35,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/4/41/Zeus_GIF.gif",
-    "rarity": 4500000},
-    "Galaxy": { "color": [81, 66, 255], "tolerance": 50,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/f/f8/Galaxy_Aura.gif",
-    "rarity": 5000000},
-    "Hades": { "color": [119, 37, 0], "tolerance": 35,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/8/85/HadesCollection.gif",
-    "rarity": 6666666},
-    "Celestial Divine": { "color": [170, 134, 200], "tolerance": 50,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/c/c4/CelestialDivineCollection.gif",
-    "rarity": 7000000},
-    "HYPER-VOLT": { "color": [141, 97, 255], "tolerance": 50,
-    "image": "https://static.wikia.nocookie.net/sol-rng/images/d/d4/HpVl.gif",
-    "rarity": 7500000}
+    "Arcane": {
+      "color": [110, 150, 255],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/8/86/Arcane_Gif_25Fps.gif",
+      "rarity": 1000000
+    },
+    "Gravitational": {
+      "color": [81, 99, 255],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/6/62/Gravitationalgif.gif",
+      "rarity": 2000000
+    },
+    "Virtual": {
+      "color": [76, 139, 255],
+      "tolerance": 35,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/8/88/VirtualReworkCollection.gif",
+      "rarity": 2500000
+    },
+    "Poseidon": {
+      "color": [14, 97, 136],
+      "tolerance": 35,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/d/db/PosEra7.gif",
+      "rarity": 4000000
+    },
+    "Zeus": {
+      "color": [255, 250, 211],
+      "tolerance": 35,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/4/41/Zeus_GIF.gif",
+      "rarity": 4500000
+    },
+    "Galaxy": {
+      "color": [81, 66, 255],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/f/f8/Galaxy_Aura.gif",
+      "rarity": 5000000
+    },
+    "Hades": {
+      "color": [119, 37, 0],
+      "tolerance": 35,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/8/85/HadesCollection.gif",
+      "rarity": 6666666
+    },
+    "Celestial Divine": {
+      "color": [170, 134, 200],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/c/c4/CelestialDivineCollection.gif",
+      "rarity": 7000000
+    },
+    "HYPER-VOLT": {
+      "color": [141, 97, 255],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/d/d4/HpVl.gif",
+      "rarity": 7500000
+    }
   },
   "10m+": {
-    "Starscourge": { "color": [255, 128, 128], "tolerance": 38 },
-    "Sailor": { "color": [116, 158, 255], "tolerance": 50 },
-    "Stormal Hurricane": { "color": [137, 137, 137], "tolerance": 50 },
-
+    "Starscourge": {
+      "color": [255, 128, 128],
+      "tolerance": 38,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/6/60/Starscourge_GIF.gif",
+      "rarity": 1000000
+    },
+    "Sailor": {
+      "color": [116, 158, 255],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/e/e2/SailorCollectionEra7.gif",
+      "rarity": 3000000
+    },
+    "Stormal Hurricane": {
+      "color": [137, 137, 137],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/2/23/Hurricane_Collection_Quality_Max.gif",
+      "rarity": 4500000
+    },
     "Sirius": {
       "color": [251, 194, 140],
       "tolerance": 50,
       "rarity": "14000000",
       "image": "https://static.wikia.nocookie.net/sol-rng/images/c/c2/Siriusincollection.gif"
     },
-
     "Arcane Legacy OR Dark (1/2)": {
       "color": [143, 174, 255],
-      "tolerance": 50
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/3/34/ArcaneLegacyAura.gif",
+      "rarity": 15000000
     },
-    "Chromatic": { "color": [210, 40, 43], "tolerance": 40 },
-    "Aviator": { "color": [220, 148, 70], "tolerance": 40 },
+    "Chromatic": {
+      "color": [210, 40, 43],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/d/d6/Chromatic_GIF.gif",
+      "rarity": 20000000
+    },
+    "Aviator": {
+      "color": [220, 148, 70],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/4/43/Aviator_Collection.gif",
+      "rarity": 24000000
+    },
     "Innovator": { "color": [26, 25, 71], "tolerance": 35 },
-    "Ethereal": { "color": [207, 191, 255], "tolerance": 30 },
+    "Ethereal": {
+      "color": [207, 191, 255],
+      "tolerance": 30,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/b/bc/Etherealpretrans.gif",
+      "rarity": 35000000
+    },
     "Overseer": {
       "color": [157, 192, 255],
       "tolerance": 30,
       "rarity": "45000000"
     },
-    "Exotic Apex": { "color": [56, 198, 217], "tolerance": 45 },
-    "Matrix": { "color": [91, 255, 177], "tolerance": 45 }
+    "Exotic Apex": {
+      "color": [56, 198, 217],
+      "tolerance": 45,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/0/09/Exotic_Apex_Collection_E7.gif",
+      "rarity": 49999500
+    },
+    "Matrix": {
+      "color": [91, 255, 177],
+      "tolerance": 45,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/b/b0/MatrixCollections.gif",
+      "rarity": 50000000
+    }
   },
   "100m+": {
     "Chromatic Genesis": {
@@ -142,7 +209,12 @@
       "tolerance": 60,
       "rarity": "99,999,999"
     },
-    "Starscourge Radiant": { "color": [153, 200, 255], "tolerance": 60 },
+    "Starscourge Radiant": {
+      "color": [153, 200, 255],
+      "tolerance": 60,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/1/16/Starscourge_Radiant_Gif2.gif",
+      "rarity": 100000000
+    },
     "Overture": { "color": [61, 101, 211], "tolerance": 30 },
     "Symphony": { "color": [197, 228, 255], "tolerance": 40 },
     "Archangel": { "color": [231, 195, 156], "tolerance": 40 },
