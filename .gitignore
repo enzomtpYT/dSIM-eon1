@@ -1,4 +1,8 @@
 config.json
-images/biomefound.png
+modules/__pycache__/**
+LICENSE
+configbackup.json
+images/current_screen.png
 images/macro_inv_ss.png
-modules/__pycache__/*
+images/biomefound.png
+.git/*
