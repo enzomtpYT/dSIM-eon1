@@ -4,8 +4,13 @@ import re, os, sys, json, threading, time, pyautogui, webbrowser, requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import threading
 
-from pynput import mouse, keyboard
-from PIL import ImageGrab, Image, ImageDraw, ImageTk
+# Check if config.json exists, if not create it
+if not os.path.exists("config.json"):
+    with open("config.json", "w") as file:
+        json.dump({}, file)
+
+from pynput import keyboard
+from PIL import ImageGrab, Image, ImageTk
 from modules.main_loop import MacroLoop 
 from modules.record_path import RecordPath
 from modules.snipping import SnippingWidget
