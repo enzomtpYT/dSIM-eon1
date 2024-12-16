@@ -1,5 +1,3 @@
-# PAUSE COMMAND IS COMMENTED OUT CUS PAUSING ISNT IN PYTHON VERSION IDK WHY :/
-
 import discord # type: ignore
 import json
 import threading
@@ -51,17 +49,6 @@ def setup_bot(macro, running_event):
                 await ctx.send(embed=local_embed, ephemeral=True) # type: ignore
 
     # define commands
-
-    #@app_commands.command(name="pause", description="Pause/Unpause the macro")
-    #async def pause(ctx: discord.Interaction):
-    #    if running_event.is_set():
-    #        running_event.clear()
-    #        macro.stop_loop()
-    #        await ctx.response.send_message("Macro paused.")
-    #    else:
-    #        running_event.set()
-    #        threading.Thread(target=macro.start_loop, daemon=True).start()
-    #        await ctx.response.send_message("Macro resumed.")
 
     @app_commands.command(name="rejoin", description="Restart macro and reconnect")
     async def rejoin(ctx: discord.Interaction):
@@ -210,7 +197,6 @@ def setup_bot(macro, running_event):
         await ctx.followup.send(embed=local_embed, ephemeral=True)
 
     # add commands to tree
-    #bot.tree.add_command(pause)
     bot.tree.add_command(rejoin)
     bot.tree.add_command(stats)
     bot.tree.add_command(screenshot)
