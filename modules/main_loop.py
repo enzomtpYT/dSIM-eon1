@@ -28,7 +28,6 @@ class MacroLoop:
         self.biome_detector_thread = None
         self.biome_detector = BiomeDetector(self.biome_detector_running)
         
-        self.image_dir = "images/Game_UI"
         self.original_resolution = (1920, 1080)
         
         #~ Predefined game menu

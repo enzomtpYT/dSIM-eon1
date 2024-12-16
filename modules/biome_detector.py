@@ -40,10 +40,6 @@ class BiomeDetector:
             "Graveyard": {"color": 0x424242, "duration": 90},
             "Pumpkin Moon": {"color": 0x762c00, "duration": 90},
         }
-
-        # template for Glitched biome
-        # self.glitched_template = cv2.imread("images/Game_UI/glitched_biome_template.png", cv2.IMREAD_GRAYSCALE)
-        # self.match_threshold = 0.72  
         
         os.makedirs("images", exist_ok=True)
 
