@@ -20,9 +20,9 @@ class MacroLoop:
     def __init__(self):
         self.running = threading.Event()
         self.thread = None
-        # self.aura_detector_running = threading.Event()
-        # self.aura_detector_thread = None
-        # self.aura_detector = AuraDetector()
+        self.aura_detector_running = threading.Event()
+        self.aura_detector_thread = None
+        self.aura_detector = AuraDetector()
         
         self.biome_detector_running = threading.Event()
         self.biome_detector_thread = None
@@ -751,10 +751,10 @@ class MacroLoop:
             self.thread = threading.Thread(target=self.loop_process)
             self.thread.start()
 
-            # if not self.aura_detector_running.is_set():
-            #     self.aura_detector_running.set()
-            #     self.aura_detector_thread = threading.Thread(target=self.run_aura_detector)
-            #     self.aura_detector_thread.start()
+            if not self.aura_detector_running.is_set():
+                self.aura_detector_running.set()
+                self.aura_detector_thread = threading.Thread(target=self.run_aura_detector)
+                self.aura_detector_thread.start()
                 
             if not self.biome_detector_running.is_set():
                 self.biome_detector_running.set()
@@ -771,12 +771,12 @@ class MacroLoop:
                 self.thread = None
                 
 
-        # if self.aura_detector_running.is_set():
-        #     print("Stopping aura detector...")
-        #     self.aura_detector_running.clear()
-        #     if self.aura_detector_thread is not None:
-        #         self.aura_detector_thread.join(timeout=2)
-        #         self.aura_detector_thread = None
+        if self.aura_detector_running.is_set():
+            print("Stopping aura detector...")
+            self.aura_detector_running.clear()
+            if self.aura_detector_thread is not None:
+                self.aura_detector_thread.join(timeout=2)
+                self.aura_detector_thread = None
                 
         if self.biome_detector_running.is_set():
             print("Stopping biome detector...")
@@ -1075,9 +1075,9 @@ class MacroLoop:
                             return
                           
 
-    # def run_aura_detector(self):
-    #     while self.aura_detector_running.is_set():
-    #         self.aura_detector.run()
+    def run_aura_detector(self):
+        while self.aura_detector_running.is_set():
+            self.aura_detector.run()
             
     def run_biome_detector(self):
         while self.biome_detector_running.is_set():

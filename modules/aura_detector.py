@@ -1,30 +1,25 @@
-import requests
-import cv2
+import requests, cv2, time, os, json, pyautogui
 import numpy as np
-import time
-import os
 from datetime import datetime
 from PIL import ImageGrab
-import json
-import pyautogui
 
 class AuraDetector:
-    def __init__(self, aura_config_path=None):
+    def __init__(self, aura_config_path=None, config_path=None):
         if aura_config_path is None:
             aura_config_path = os.path.join(os.path.dirname(__file__), "auras.json")
             
-        # if config_path is None:
-        #     config_path = os.path.join(os.path.dirname(__file__), "config.json")
+        if config_path is None:
+            config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.json")
         
         with open(aura_config_path, "r") as file:
             self.auras = json.load(file)
             
-        # with open(config_path, "r") as config_file:
-        #     config = json.load(config_file)
-        #     self.webhook_url = config.get("WebhookLink")
-        #     self.webhook_userid = config.get("WebhookUserID")
-        #     self.roll_ping_minimum = config.get("WebhookRollPingMinimum", 100000)
-        #     self.roll_send_minimum = config.get("WebhookRollSendMinimum", 10000)
+        with open(config_path, "r") as config_file:
+            config = json.load(config_file)
+            self.webhook_url = config.get("WebhookLink")
+            self.webhook_userid = config.get("WebhookUserID")
+            self.roll_ping_minimum = config.get("WebhookRollPingMinimum", 100000)
+            self.roll_send_minimum = config.get("WebhookRollSendMinimum", 10000)
 
         # Convert colors to numpy for easier detect
         for rarity in self.auras.values():
@@ -51,17 +46,28 @@ class AuraDetector:
         self.ignored_4_corner_count = 0
         self.max_ignored_threshold = 2
         
-    def send_webhook(self, aura_name, rarity_value, image_path):
+    def rgb_to_hex(self, rgb):
+        return int("{:02x}{:02x}{:02x}".format(rgb[0], rgb[1], rgb[2]), 16)
+        
+    def send_webhook(self, aura_name, rarity_value, image_path, rgb_color=None, aura_img=None):
+        if rgb_color is None:
+            # color: 0x5B4E9F
+            rgb_color = [91, 78, 159]  # Fallback 
+        
+        if aura_img is None:
+            aura_img = ""
+
         embed = {
             "title": f"# You rolled {aura_name}!",
             "description": f"** 1/{rarity_value} **",
-            "color": 0x5B4E9F,
-            "image": {"url": f"attachment://{os.path.basename(image_path)}"},
+            "color": self.rgb_to_hex(rgb_color),
+            "image": {"url": aura_img},
+            "thumbnail": {"url": f"attachment://{os.path.basename(image_path)}"},
         }
 
         # Determine whether to ping based on rarity
         content = None
-        if rarity_value >= self.roll_ping_minimum:
+        if rarity_value >= self.roll_ping_minimum and self.webhook_userid != '':
             content = f"<@{self.webhook_userid}>"
 
         with open(image_path, "rb") as f:
@@ -71,8 +77,10 @@ class AuraDetector:
                 payload["content"] = content
 
             response = requests.post(self.webhook_url, data={"payload_json": json.dumps(payload)}, files=files)
-            if response.status_code != 204:
+            if response.status_code != 204 and response.status_code != 200:
                 print(f"Error: {response.text}")
+            else:
+                print("Webhook sent successfully.")
 
     def rgb_distance(self, color1, color2):
         return np.linalg.norm(np.array(color1) - np.array(color2))
@@ -196,11 +204,10 @@ class AuraDetector:
             rarity_value = int(aura_info.get("rarity", 0))
 
             # Save the detected aura image
-            filename = f"images/{aura_name}_{star_type}.png"
-            cv2.imwrite(filename, image)
+            filename = self.save_image(image, aura_name, star_type)
 
             # Send a webhook notification
-            # self.send_webhook(aura_name, rarity_value, filename)
+            self.send_webhook(aura_name, rarity_value, filename, aura_info["color"], aura_info.get("image"))
             self.previous_aura_name = aura_name
             self.last_detection_time = current_time
             print(f"Detected Aura: {aura_name}")
@@ -208,9 +215,10 @@ class AuraDetector:
             print("No auras detected.")
 
     def save_image(self, image, aura_name, star_type):
-        filename = f"images/{aura_name}_{star_type}.png"
+        filename = f"images/auras/{aura_name}_{star_type}.png"
         cv2.imwrite(filename, image)
         print(f"Saved aura image: {filename}")
+        return filename
 
     def run(self, interval=1):
         while True:
