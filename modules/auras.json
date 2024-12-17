@@ -68,7 +68,7 @@
     },
     "Galaxy": {
       "color": [83, 67, 254],
-      "tolerance": 50,
+      "tolerance": 30,
       "image": "https://static.wikia.nocookie.net/sol-rng/images/f/f8/Galaxy_Aura.gif",
       "rarity": 500000
     },
@@ -90,6 +90,12 @@
       "color": [81, 99, 255],
       "tolerance": 40,
       "image": "https://static.wikia.nocookie.net/sol-rng/images/6/62/Gravitationalgif.gif",
+      "rarity": 2000000
+    },
+    "BOUNDED : UNBOUND": {
+      "color": [77, 64, 255],
+      "tolerance": 70,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/6/65/Unbound_E7_Collection2.gif",
       "rarity": 2000000
     },
     "Virtual": {
@@ -157,7 +163,7 @@
     "Sirius": {
       "color": [251, 194, 140],
       "tolerance": 50,
-      "rarity": "14000000",
+      "rarity": 14000000,
       "image": "https://static.wikia.nocookie.net/sol-rng/images/c/c2/Siriusincollection.gif"
     },
     "Arcane Legacy OR Dark (1/2)": {
@@ -178,7 +184,18 @@
       "image": "https://static.wikia.nocookie.net/sol-rng/images/4/43/Aviator_Collection.gif",
       "rarity": 24000000
     },
-    "Innovator": { "color": [26, 25, 71], "tolerance": 35 },
+    "Innovator": {
+      "color": [26, 25, 71],
+      "tolerance": 35,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/1/11/InnovatorCollection.gif",
+      "rarity": 30000000
+    },
+    "Aquatic : Flame": {
+      "color": [163, 87, 37],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/7/7f/Aqua_flame_new_gif.gif",
+      "rarity": 4000000
+    },
     "Ethereal": {
       "color": [207, 191, 255],
       "tolerance": 30,
@@ -188,7 +205,7 @@
     "Overseer": {
       "color": [157, 192, 255],
       "tolerance": 30,
-      "rarity": "45000000"
+      "rarity": 45000000
     },
     "Exotic Apex": {
       "color": [56, 198, 217],
@@ -201,13 +218,25 @@
       "tolerance": 45,
       "image": "https://static.wikia.nocookie.net/sol-rng/images/b/b0/MatrixCollections.gif",
       "rarity": 50000000
+    },
+    "Twilight : Iridescent Memory": {
+      "color": [91, 78, 160],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/f/fc/Twilight_-_Iridescent_Memory_Collection.gif",
+      "rarity": 60000000
+    },
+    "Sailor : Flying Dutchman": {
+      "color": [69, 135, 81],
+      "tolerance": 45,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/3/39/CollectionFdRework.gif",
+      "rarity": 80000000
     }
   },
   "100m+": {
     "Chromatic Genesis": {
       "color": [95, 102, 255],
       "tolerance": 60,
-      "rarity": "99,999,999"
+      "rarity": 99999999
     },
     "Starscourge Radiant": {
       "color": [153, 200, 255],
@@ -215,18 +244,84 @@
       "image": "https://static.wikia.nocookie.net/sol-rng/images/1/16/Starscourge_Radiant_Gif2.gif",
       "rarity": 100000000
     },
-    "Overture": { "color": [61, 101, 211], "tolerance": 30 },
-    "Symphony": { "color": [197, 228, 255], "tolerance": 40 },
-    "Archangel": { "color": [231, 195, 156], "tolerance": 40 },
-    "SOVEREIGN": { "color": [162, 194, 173], "tolerance": 50 },
-    "IMPEACHED": { "color": [166, 102, 255], "tolerance": 45 },
-    "Overture History": { "color": [89, 255, 150], "tolerance": 30 },
-    "BLOODLUST": { "color": [130, 22, 24], "tolerance": 40 },
-    "Atlas": { "color": [186, 128, 73], "tolerance": 50 },
-    "Abyssal Hunter": { "color": [43, 83, 255], "tolerance": 40 },
-    "GARGANTUA": { "color": [255, 172, 55], "tolerance": 50 },
-    "Ruins": { "color": [119, 178, 57], "tolerance": 50 },
-    "Matrix Overdrive": { "color": [212, 31, 34], "tolerance": 40 },
-    "Memory": { "color": [82, 65, 209], "tolerance": 30 }
+    "Overture": {
+      "color": [61, 101, 211],
+      "tolerance": 30,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/e/e8/Overture_Collection.gif",
+      "rarity": 150000000
+    },
+    "Symphony": {
+      "color": [197, 228, 255],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/f/f6/Symphony_Collection.gif",
+      "rarity": 175000000
+    },
+    "Archangel": {
+      "color": [231, 195, 156],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/b/bb/Archangel_GIF.gif",
+      "rarity": 250000000
+    },
+    "SOVEREIGN": {
+      "color": [162, 194, 173],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/0/05/Sovereign_Collection_E8.gif",
+      "rarity": 750000000
+    },
+    "IMPEACHED": {
+      "color": [166, 102, 255],
+      "tolerance": 45,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/2/2f/Impeached_Collectiongifv2.gif",
+      "rarity": 200000000
+    },
+    "Overture History": {
+      "color": [89, 255, 150],
+      "tolerance": 30,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/d/d3/Overture_-_History_GIF.gif",
+      "rarity": 300000000
+    },
+    "BLOODLUST": {
+      "color": [130, 22, 24],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/f/f9/BloodlustInCollection.gif",
+      "rarity": 300000000
+    },
+    "Atlas": {
+      "color": [186, 128, 73],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/e/ea/Atlasingame.gif",
+      "rarity": 360000000
+    },
+    "Abyssal Hunter": {
+      "color": [43, 83, 255],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/c/ce/Abyssal_Hunter_Collection2.gif",
+      "rarity": 400000000
+    },
+    "GARGANTUA": {
+      "color": [255, 172, 55],
+      "tolerance": 50,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/d/de/GargantuaCollection.gif",
+      "rarity": 430000000
+    },
+    "Ruins": {
+      "color": [119, 178, 57],
+      "tolerance": 5,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/7/74/Ruins.collection.gif",
+      "rarity": 500000000
+    },
+    "Matrix Overdrive": {
+      "color": [212, 31, 34],
+      "tolerance": 40,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/e/e4/MatrixOverdriveCollection.gif",
+      "rarity": 503000000
+    },
+    "Memory": {
+      "color": [82, 65, 209],
+      "tolerance": 30,
+      "image": "https://static.wikia.nocookie.net/sol-rng/images/3/35/Memory_Collections.gif",
+      "rarity": 100,
+      "bypass": true
+    }
   }
 }
