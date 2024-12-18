@@ -59,6 +59,7 @@ class MacroLoop:
         # quest claim cooldown
         self.last_quest_claim = time.time() - 1800
         self.quest_cooldown = 1800
+        self.one_time_stats_update = False
     
     def get_subpath_json(self, subpath_index, small_path_num):
         sub_path_folder = os.path.join(self.BASE_PATH, "EON1_New", f"EON1_SubPath{subpath_index}")

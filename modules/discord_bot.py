@@ -12,8 +12,10 @@ from datetime import datetime
 CONFIG_PATH = "config.json"
 with open(CONFIG_PATH, "r") as file:
     config = json.load(file)
+user = None
 
 intents = discord.Intents.default()
+intents.message_content = True  # Enable message content intent
 bot = commands.Bot(command_prefix="/", intents=intents)
 
 def update_config(key, value):
@@ -26,6 +28,14 @@ def setup_bot(macro, running_event):
     @bot.event
     async def on_ready():
         print(f"Bot is online as {bot.user}")
+        user_id = config.get("DiscordBot_UserID")
+        if user_id:
+            global user
+            user = await bot.fetch_user(user_id)
+            print(f"Configured user: {user.name}")
+        else:
+            print("No User ID configured.")
+        await bot.change_presence(status=discord.Status.idle, activity=discord.CustomActivity(name=f"Waiting for my master {user.name} to use me."))
         try:
             synced = await bot.tree.sync()
             print(f"Synced {len(synced)} commands with Discord.")
@@ -47,6 +57,14 @@ def setup_bot(macro, running_event):
                     color=discord.Color.from_rgb(128, 128, 128)
                 )
                 await ctx.send(embed=local_embed, ephemeral=True) # type: ignore
+
+    # define some useful functions
+
+    async def change_presence(num):
+        if num == 0:
+            await bot.change_presence(activity=discord.CustomActivity(name=f"Waiting for my master {user.name}"), status=discord.Status.idle)
+        else:
+            await bot.change_presence(activity=discord.Game(name=f"Sol's Rng for my master {user.name}"), status=discord.Status.online)
 
     # define commands
 
@@ -168,13 +186,11 @@ def setup_bot(macro, running_event):
             await ctx.response.send_message("You do not have permission to use this command. Ensure the correct User ID is set.", ephemeral=True)
             return
         
+        await ctx.response.send_message(content="Stopping macro...", ephemeral=True)
         macro.stop_loop()
         running_event.clear()
-        local_embed = discord.Embed(
-            description="Macro stopped.", 
-            color=discord.Color.from_rgb(128, 128, 128)
-        )
-        await ctx.followup.send(embed=local_embed, ephemeral=True)
+        await ctx.followup.send(content="Macro stopped.")
+        await change_presence(0)
 
     @app_commands.command(name="start", description="Start the macro")
     async def start(ctx: discord.Interaction):
@@ -188,16 +204,14 @@ def setup_bot(macro, running_event):
             await ctx.response.send_message("You do not have permission to use this command. Ensure the correct User ID is set.", ephemeral=True)
             return
         
+        await ctx.response.send_message(content="Starting macro...", ephemeral=True)
         running_event.set()
         threading.Thread(target=macro.start_loop, daemon=True).start()
-        local_embed = discord.Embed(
-            description="Macro started.", 
-            color=discord.Color.from_rgb(128, 128, 128)
-        )
-        await ctx.followup.send(embed=local_embed, ephemeral=True)
+        await ctx.followup.send(content="Macro started.")
+        await change_presence(1)
 
     # add commands to tree
-    bot.tree.add_command(rejoin)
+    # bot.tree.add_command(rejoin)
     bot.tree.add_command(stats)
     bot.tree.add_command(screenshot)
     bot.tree.add_command(stop)
@@ -206,4 +220,8 @@ def setup_bot(macro, running_event):
 # start the bot
 def start_bot(macro, running_event):
     setup_bot(macro, running_event)
-    bot.run(config["DiscordBot_Token"])
+    try:
+        bot.run(config["DiscordBot_Token"])
+    except Exception as e:
+        print(f"Error starting bot: {e}")
+        print("Please check your DiscordBot_Token in config.json")
