@@ -1,4 +1,4 @@
-import requests, cv2, time, os, json, pyautogui
+import requests, cv2, time, os, json, pyautogui, pygetwindow
 import numpy as np
 from datetime import datetime
 from PIL import ImageGrab
@@ -160,13 +160,41 @@ class AuraDetector:
         hsv_image[:, :, 2] = np.clip(hsv_image[:, :, 2] * factor, 0, 255).astype(np.uint8)
         return cv2.cvtColor(hsv_image, cv2.COLOR_HSV2BGR)
 
+    # Get the Roblox window size and return rX as roblox window position, rY as roblox window position and rW as roblox window width, rH as roblox window height
+    def getRobloxWindowSize(self):
+        window_list = pyautogui.getAllTitles()
+        for window in window_list:
+            if "Roblox" in window:
+                window_info = pygetwindow.getWindowsWithTitle(window)[0]
+                return window_info.left+8, window_info.top+8, window_info.width-16, window_info.height-16
+
+    def isColorBlack(self, color):
+        return color[0] < 80 and color[1] < 80 and color[2] < 80
+
+    def isColorWhite(self, color):
+        return color[0] > 175 and color[1] > 175 and color[2] > 175
+
     def detect_aura(self, image):
+        rX, rY, rW, rH = self.getRobloxWindowSize()
+        scanPoints = [[rX+1,rY+31],[rX+rW-2,rY+31],[rX+1,rY+rH-2],[rX+rW-2,rY+rH-2]]
+        blackCorners = 0
+        whiteCorners = 0
+        cornerResults = []
+
+        for point in scanPoints:
+            pColor = image[point[1], point[0]]
+            if self.isColorBlack(pColor):
+                blackCorners += 1
+            if self.isColorWhite(pColor):
+                whiteCorners += 1
+            cornerResults.append(pColor)
+
         current_time = time.time()
         if current_time - self.last_detection_time < 15:
             return None
 
         star_bbox, star_type = self.detect_star_shape(image)
-        if not star_bbox:
+        if not ((blackCorners >= 4 and star_bbox) or (star_bbox and self.isColorBlack(cornerResults[0]) and self.isColorBlack(cornerResults[1]) and not self.isColorWhite(cornerResults[2]))):
             return None
 
         x, y, w, h = star_bbox
@@ -222,6 +250,7 @@ class AuraDetector:
 
     def run(self, interval=1):
         while True:
+            self.getRobloxWindowSize()
             screenshot = pyautogui.screenshot()
             image = cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
             self.detect_aura(image)
