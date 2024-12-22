@@ -1,8 +1,5 @@
-import cv2
+import cv2, time, os
 import numpy as np
-import time
-import os
-from datetime import datetime
 from PIL import ImageGrab
 
 class AuraDetector:

@@ -1,7 +1,6 @@
-import time, cv2, pyautogui, pytesseract, json, os, re, requests, threading
-import numpy as np
+import time, pyautogui, pytesseract, json, os, re, requests, threading
 from difflib import SequenceMatcher
-from PIL import Image, ImageEnhance
+from PIL import ImageEnhance
 
 class BiomeDetector:
     def __init__(self, biome_detector_running, config_path=os.path.expandvars("%appdata%/DSIM/config.json")):

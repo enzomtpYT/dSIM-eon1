@@ -1,6 +1,5 @@
 import json, os
 import tkinter as tk
-from PIL import ImageGrab
 
 class SnippingWidget:
     def __init__(self, root, config_key=None, callback=None):

@@ -1,6 +1,5 @@
 import requests, cv2, time, os, json, pyautogui, pygetwindow
 import numpy as np
-from datetime import datetime
 from PIL import ImageGrab
 
 class AuraDetector:

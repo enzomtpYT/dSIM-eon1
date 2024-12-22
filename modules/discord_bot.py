@@ -1,9 +1,4 @@
-import discord # type: ignore
-import json
-import threading
-import pyautogui
-import requests
-import os
+import discord, json, threading, pyautogui, requests, os
 
 from discord.ext import commands # type: ignore
 from discord import app_commands # type: ignore

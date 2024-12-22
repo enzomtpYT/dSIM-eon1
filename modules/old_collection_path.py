@@ -1,5 +1,4 @@
-import autoit
-import time
+import autoit, time
 
 class CollectionPath:
     def __init__(self, is_allan_path=False):

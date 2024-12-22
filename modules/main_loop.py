@@ -1,10 +1,6 @@
-import threading, time, win32gui, win32con, os, json, re, requests, base64, io, pytesseract
-import concurrent.futures
-import numpy as np
+import threading, time, win32gui, win32con, os, json, re, requests, pytesseract, concurrent.futures, pyautogui
 import pygetwindow as gw
-import pyautogui, cv2
 from ahk import AHK
-from PIL import Image, ImageGrab
 from modules.aura_detector import AuraDetector
 from modules.record_path import RecordPath
 from modules.biome_detector import BiomeDetector
