@@ -8,3 +8,5 @@ images/biomefound.png
 .git/*
 images/auras/*
 images/merchant_screenshot.png
+build/*
+dist/*
