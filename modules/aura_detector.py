@@ -4,15 +4,16 @@ from datetime import datetime
 from PIL import ImageGrab
 
 class AuraDetector:
-    def __init__(self, aura_config_path=None, config_path=None):
-        if aura_config_path is None:
-            aura_config_path = os.path.join(os.path.dirname(__file__), "auras.json")
+    def __init__(self, config_path=None):
             
         if config_path is None:
-            config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.json")
+            config_path = os.path.expandvars("%appdata%/DSIM/config.json")
         
-        with open(aura_config_path, "r") as file:
-            self.auras = json.load(file)
+        response = requests.get("https://gist.enzomtp.party/enzomtp/e93e43c689aa4c7aba469376517ec691/raw/HEAD/auras.json")
+        if response.status_code == 200:
+            self.auras = response.json()
+        else:
+            raise Exception("Failed to load auras configuration from the provided URL.")
             
         with open(config_path, "r") as config_file:
             config = json.load(config_file)

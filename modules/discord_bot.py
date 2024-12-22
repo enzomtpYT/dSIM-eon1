@@ -9,7 +9,7 @@ from discord.ext import commands # type: ignore
 from discord import app_commands # type: ignore
 from datetime import datetime
 
-CONFIG_PATH = "config.json"
+CONFIG_PATH = os.path.expandvars("%appdata%/DSIM/config.json")
 with open(CONFIG_PATH, "r") as file:
     config = json.load(file)
 user = None

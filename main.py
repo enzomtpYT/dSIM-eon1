@@ -1,12 +1,25 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
-import re, os, sys, json, threading, time, pyautogui, webbrowser, requests
+import re, os, sys, json, threading, webbrowser, requests
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import threading
 
+if os.path.exists(os.path.join(os.path.dirname(__file__), "config.json")):
+    print("Detected old config.json file in the DSIM folder.")
+    appdata_config_path = os.path.expandvars("%appdata%/DSIM/config.json")
+    if not os.path.exists(appdata_config_path):
+        print("Migrating config.json to %appdata%...")
+        with open(os.path.join(os.path.dirname(__file__), "config.json"), "r") as src:
+            with open(appdata_config_path, "w") as dst:
+                dst.write(src.read())
+    print("Successfully migrated config.json to %appdata%.")
+    if os.path.exists(appdata_config_path):
+        print("Removing old config.json file from DSIM folder.")
+        os.remove(os.path.join(os.path.dirname(__file__), "config.json"))
+
 # Check if config.json exists, if not create it
-if not os.path.exists("config.json"):
-    with open("config.json", "w") as file:
+if not os.path.exists(os.path.expandvars("%appdata%/DSIM/config.json")):
+    with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as file:
         json.dump({}, file)
 
 from pynput import keyboard
@@ -45,7 +58,7 @@ class DiscordMacroUI:
         self.center_window()
         
         #config and config path
-        self.config_path = "config.json"
+        self.config_path = os.path.expandvars("%appdata%/DSIM/config.json")
         self.config = self.load_config()
 
         if not os.path.exists(os.path.expandvars("%appdata%/DSIM/")):
@@ -182,7 +195,7 @@ class DiscordMacroUI:
         self.config["Equipped_Aura"] = aura_name
         self.config["Special_Aura"] = is_special
 
-        with open("config.json", "w") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as config_file:
             json.dump(self.config, config_file, indent=4)
 
         for widget in self.root.winfo_children():
@@ -195,7 +208,7 @@ class DiscordMacroUI:
     
     def load_from_json(self):
         try:
-            with open("config.json", "r") as file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as file:
                 data = json.load(file)
                 self.scheduler_entries = data.get("item_scheduler", [])
                 
@@ -216,14 +229,14 @@ class DiscordMacroUI:
     def save_to_json(self):
         try:
             try:
-                with open("config.json", "r") as file:
+                with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as file:
                     data = json.load(file)
             except (FileNotFoundError, json.JSONDecodeError):
                 data = {}
 
             data["item_scheduler"] = self.scheduler_entries
 
-            with open("config.json", "w") as file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as file:
                 json.dump(data, file, indent=4)
 
         except Exception as e:

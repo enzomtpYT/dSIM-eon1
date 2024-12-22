@@ -4,7 +4,7 @@ from difflib import SequenceMatcher
 from PIL import Image, ImageEnhance
 
 class BiomeDetector:
-    def __init__(self, biome_detector_running, config_path="config.json"):
+    def __init__(self, biome_detector_running, config_path=os.path.expandvars("%appdata%/DSIM/config.json")):
         self.set_tesseract_path()
         self.biome_detector_running = biome_detector_running
         self.config = self.load_config(config_path)

@@ -1,11 +1,9 @@
-import time
-import json
-import threading
+import time, os, json, threading
 from pynput import mouse, keyboard
 
 class RecordPath:
     def __init__(self, filename="path_record.json", stop_key=keyboard.Key.esc, running_event=None):
-        with open('config.json', 'r') as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), 'r') as config_file:
             config = json.load(config_file)
         
         self.azerty_keyboard = config.get("AZERTY_Keyboard", False)

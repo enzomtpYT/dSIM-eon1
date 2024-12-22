@@ -1,4 +1,4 @@
-import json
+import json, os
 import tkinter as tk
 from PIL import ImageGrab
 
@@ -60,12 +60,12 @@ class SnippingWidget:
 
     def save_region_to_config(self, region):
         try:
-            with open("config.json", "r") as config_file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
                 config = json.load(config_file)
 
             config[self.config_key] = region
 
-            with open("config.json", "w") as config_file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as config_file:
                 json.dump(config, config_file, indent=4)
         except Exception as e:
             print(f"Failed to save region to config.json: {e}")

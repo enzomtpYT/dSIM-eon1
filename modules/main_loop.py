@@ -91,7 +91,7 @@ class MacroLoop:
 
     def send_webhook_status(self, status, color=None, inv_screenshots=False):
         try:
-            with open("config.json", "r") as config_file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
                 config = json.load(config_file)
 
             if config.get("Webhook_Enabled", 0) != 1:
@@ -212,7 +212,7 @@ class MacroLoop:
     
 
     def send_merchant_webhook(self, merchant_name, screenshot_path):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         merchant_webhooks = config.get("Merchant_Webhook", [])
@@ -307,7 +307,7 @@ class MacroLoop:
     
     def check_obby_path(self):
         try:
-            with open("config.json", "r") as config_file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
                 config = json.load(config_file)
 
             if config.get("DoObby") == 1:
@@ -346,7 +346,7 @@ class MacroLoop:
 
     def potion_crafting_loop(self):
         try:
-            with open("config.json", "r") as config_file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
                 config = json.load(config_file)
 
             if not config.get("AutomaticPotionCrafting", False): return
@@ -574,7 +574,7 @@ class MacroLoop:
 
                     
     def use_item_scheduler(self):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         current_time = time.time()
@@ -624,7 +624,7 @@ class MacroLoop:
 
 
     def Merchant_Handler(self):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         merchant_name_ocr_pos = config["merchant_name_ocr_pos"]
@@ -813,7 +813,7 @@ class MacroLoop:
 
     
     def equipAura(self, aura_name="Glock"):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         aura_storage_coords = config.get("aura_storage_coords", [0, 0])
@@ -868,7 +868,7 @@ class MacroLoop:
         ahk.click(aura_storage_coords[0], aura_storage_coords[1], coord_mode="Screen")
 
     def collection_align(self):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         collection_button_coords = config.get("collection_button_coords", [0, 0])
@@ -892,7 +892,7 @@ class MacroLoop:
           
         
     def Inventory(self, item_name="Strange Controller", amount=1):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         self.inv_menu_coords = config.get("inv_menu_coords", [0, 0])
@@ -940,7 +940,7 @@ class MacroLoop:
         time.sleep(0.2)
     
     def Quest(self):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         quest_menu_coords = config.get("quest_menu_coords", [0, 0])
@@ -987,7 +987,7 @@ class MacroLoop:
         
     def macro_periodical_screenshot(self):
         try:
-            with open("config.json", "r") as config_file:
+            with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
                 config = json.load(config_file)
 
             if not config.get("WebhookInventory", False):
@@ -1017,7 +1017,7 @@ class MacroLoop:
 
             
     def loop_process(self):
-        with open("config.json", "r") as config_file:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "r") as config_file:
             config = json.load(config_file)
 
         collect_items_enabled = config.get("CollectItems", 0) == 1
