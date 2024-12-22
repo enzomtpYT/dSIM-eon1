@@ -116,7 +116,7 @@ class AuraDetector:
         x, y, w, h = star_bbox
         center_x, center_y = x + w // 2, y + h // 2
         cv2.rectangle(image_adjusted, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        debug_image_path = f"images/debug_{star_type}_box.png"
+        debug_image_path = os.path.expandvars(f"%appdata%/DSIM/images/debug_{star_type}_box.png")
         cv2.imwrite(debug_image_path, image_adjusted)
         print(f"Debug image with green box saved: {debug_image_path}")
         
@@ -164,7 +164,7 @@ class AuraDetector:
 
 
     def save_image(self, image, aura_name, star_type):
-        filename = f"images/{aura_name}_{star_type}.png"
+        filename = os.path.expandvars(f"%appdata%/DSIM/images/{aura_name}_{star_type}.png")
         cv2.imwrite(filename, image)
         print(f"Saved aura image: {filename}")
 

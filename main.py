@@ -48,6 +48,11 @@ class DiscordMacroUI:
         self.config_path = "config.json"
         self.config = self.load_config()
 
+        if not os.path.exists(os.path.expandvars("%appdata%/DSIM/")):
+            os.makedirs(os.path.expandvars("%appdata%/DSIM/"))
+            os.makedirs(os.path.expandvars("%appdata%/DSIM/images"))
+            os.makedirs(os.path.expandvars("%appdata%/DSIM/images/Auras"))
+
         # initialize/start the discord bot
         if self.config.get("DiscordBot_Enabled", 0):
             threading.Thread(target=start_bot, args=(self.macro_loop, self.running_event), daemon=True).start()
@@ -426,7 +431,7 @@ class DiscordMacroUI:
             message = f"Simulating ping to {ping_type.capitalize()} with ID: {ping_id}"
             
             screenshot = ImageGrab.grab()
-            screenshot_path = f"images/merchant_screenshot.png"
+            screenshot_path = os.path.expandvars(f"%appdata%/DSIM/images/merchant_screenshot.png")
             screenshot.save(screenshot_path)
             
             merchant_thumbnails = {
@@ -1509,6 +1514,7 @@ class DiscordMacroUI:
         self.scheduler_frame = ttk.Frame(scheduler_window)
         self.scheduler_frame.pack(fill="both", expand=True, padx=10, pady=10)
         self.entry_widgets = []
+        self.entry_vars = []  # Clear entry_vars
 
         # Correct header order
         headers = ["Enable", "Item", "Quantity", "Frequency", "Unit & Duration", "Biome", "Delete"]

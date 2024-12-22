@@ -67,7 +67,7 @@ class BiomeDetector:
         screenshot = enhancer.enhance(1.05)
         
         # Save the screenshot
-        screenshot.save("images/biomefound.png")
+        screenshot.save(os.path.expandvars("%appdata%/DSIM/images/biomefound.png"))
         text = pytesseract.image_to_string(screenshot)
         return text.strip()
 
@@ -102,7 +102,7 @@ class BiomeDetector:
             ]
         }
 
-        with open("images/biomefound.png", "rb") as image_file:
+        with open(os.path.expandvars("%appdata%/DSIM/images/biomefound.png"), "rb") as image_file:
             payload_json = json.dumps(payload)
             files = {
                 "file": ("biomefound.png", image_file, "image/png")

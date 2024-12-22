@@ -121,7 +121,7 @@ def setup_bot(macro, running_event):
         try:
             os.makedirs("images", exist_ok=True)
 
-            screenshot_path = "images/current_screen.png"
+            screenshot_path = os.path.expandvars("%appdata%/DSIM/images/current_screen.png")
             screenshot = pyautogui.screenshot()
             screenshot.save(screenshot_path)
 

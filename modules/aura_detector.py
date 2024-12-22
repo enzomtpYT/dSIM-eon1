@@ -243,7 +243,7 @@ class AuraDetector:
             print("No auras detected.")
 
     def save_image(self, image, aura_name, star_type):
-        filename = f"images/auras/{aura_name}_{star_type}.png"
+        filename = os.path.expandvars(f"%appdata%/DSIM/images/Auras/{aura_name}_{star_type}.png")
         cv2.imwrite(filename, image)
         print(f"Saved aura image: {filename}")
         return filename

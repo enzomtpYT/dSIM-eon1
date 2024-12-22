@@ -105,7 +105,7 @@ class MacroLoop:
             # Default embed color
             default_color = 3066993 if "started" in status.lower() else 15158332
             embed_color = color if color is not None else default_color
-            screenshot_path = "images/macro_inv_ss.png"
+            screenshot_path = os.path.expandvars("%appdata%/DSIM/images/macro_inv_ss.png")
             os.makedirs("images", exist_ok=True)
 
 
@@ -658,12 +658,6 @@ class MacroLoop:
             screenshot = pyautogui.screenshot(region=(x, y, w, h))
             merchant_name_text = pytesseract.image_to_string(screenshot)
             
-            #print(merchant_name_text)
-            
-            # merchant debugging
-            # debug_screenshot_path = f"debug_merchant.png"
-            # screenshot.save(debug_screenshot_path)
-            
             if any(name in merchant_name_text for name in ["Mori", "Marl", "Mar1", "MarI", "Mar!", "Maori"]):
                 merchant_name = "Mari"
                 print("[Merchant Detection]: Mari name found!")
@@ -685,7 +679,7 @@ class MacroLoop:
 
             # Take a screenshot for the webhook
             item_screenshot = pyautogui.screenshot()
-            screenshot_path = f"images/merchant_screenshot.png"
+            screenshot_path = os.path.expandvars("%appdata%/DSIM/images/merchant_screenshot.png")
             item_screenshot.save(screenshot_path)
             
             self.send_merchant_webhook(merchant_name, screenshot_path)
