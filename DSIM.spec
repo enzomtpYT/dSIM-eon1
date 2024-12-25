@@ -38,4 +38,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon='images/Game_UI/icon.ico'  # Ensure this path is correct and the file exists
 )

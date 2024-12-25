@@ -35,6 +35,7 @@ class DiscordMacroUI:
         self.root = root
         self.root.title("Improvement Sol's v1.6.0 (EON1)")
         self.root.configure(bg="#2C2F33")
+        self.root.iconbitmap(os.path.join("images", "game_ui", "icon.ico"))
         self.dark_mode = True
         
         self.macro_loop = MacroLoop()
@@ -1366,7 +1367,7 @@ class DiscordMacroUI:
 
         github_link = ttk.Label(other_frame, text="Visit the macro source code on GitHub!", foreground="#1E90FF", cursor="hand2", font=("Helvetica", 9))
         github_link.grid(column=0, row=1, padx=5, pady=5, sticky="w")
-        github_link.bind("<Button-1>", lambda e: webbrowser.open("https://github.com/noteab/Improvement-Sols-Macro/tree/Noteab-Improvement"))
+        github_link.bind("<Button-1>", lambda e: webbrowser.open("https://github.com/enzomtpYT/dSIM-eon1/tree/Improvement-Sol's-DiscordBot"))
 
 
         extras_button = ttk.Button(other_frame, text="Extras Credit", command=self.show_extras_credit)
@@ -1381,8 +1382,8 @@ class DiscordMacroUI:
         contributors_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
         contributors = [
-            "vexthecoder -",
-            "Created the Discord Bot code and functionality."
+            "vexthecoder - Created the Discord Bot code and functionality.",
+            "enzomtp - Edited the Discord Bot code and added new features.",
         ]
 
         for contributor in contributors:
@@ -1398,7 +1399,7 @@ class DiscordMacroUI:
             "Cataster - catast3r",
             "DiEgO - diego696969",
             "Dolphinatorツ - wtr_dolphinator",
-            "enzo | Ping and i'll answer - enzomtp",
+            "enzomtp",
             "Garfield l LOA - garfieldthelord",
             "glen - g._tch",
             "justimon. - imonjusty",
