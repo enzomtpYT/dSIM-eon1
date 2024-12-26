@@ -1,0 +1,216 @@
+{
+    "aura_storage_coords": [
+        35,
+        390
+    ],
+    "equip_tab_normal": [
+        950,
+        324
+    ],
+    "equip_tab_special": [
+        1278,
+        320
+    ],
+    "search_bar_coords": [
+        832,
+        355
+    ],
+    "first_aura_coords": [
+        815,
+        421
+    ],
+    "equip_button_coords": [
+        616,
+        625
+    ],
+    "collection_button_coords": [
+        47,
+        468
+    ],
+    "collection_back_button_coords": [
+        376,
+        148
+    ],
+    "inv_menu_coords": [
+        51,
+        527
+    ],
+    "inv_itemtab_button_coords": [
+        1261,
+        324
+    ],
+    "inv_sbar_button_coords": [
+        831,
+        355
+    ],
+    "inv_firstitem_coords": [
+        839,
+        421
+    ],
+    "inv_amountbox_coords": [
+        593,
+        564
+    ],
+    "inv_use_button_coords": [
+        674,
+        567
+    ],
+    "quest_menu_coords": [
+        39,
+        598
+    ],
+    "quest_dailytab_coords": [
+        1256,
+        319
+    ],
+    "quest_firstquest_coords": [
+        824,
+        539
+    ],
+    "quest_claim_button_coords": [
+        626,
+        763
+    ],
+    "potion_sbar_coords": [
+        933,
+        324
+    ],
+    "potion_firstpotion_coords": [
+        957,
+        400
+    ],
+    "potion_craft_coords": [
+        569,
+        559
+    ],
+    "potion_autobutton_coords": [
+        705,
+        560
+    ],
+    "potion_manualbutton_coords": [
+        796,
+        622
+    ],
+    "potion_manualamount_coords": [
+        724,
+        621
+    ],
+    "potion_1manualbox_coords": [
+        798,
+        617
+    ],
+    "potion_2manualbox_coords": [
+        800,
+        666
+    ],
+    "potion_3manualbox_coords": [
+        799,
+        723
+    ],
+    "potion_4manualbox_coords": [
+        805,
+        646
+    ],
+    "potion_5manualbox_coords": [
+        795,
+        700
+    ],
+    "potion_6manualbox_coords": [
+        790,
+        755
+    ],
+    "Sub_ItemSpot": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "CollectItems": 0,
+    "DoObby": 0,
+    "AutoChalice": 0,
+    "AutoClaimDailyQuests": true,
+    "AZERTY_Keyboard": false,
+    "item_scheduler": [
+    ],
+    "Enabled_AutoEquip": 0,
+    "AutomaticPotionCrafting": false,
+    "Equipped_Aura": "",
+    "Special_Aura": 0,
+    "WebhookLink": "",
+    "Webhook_Enabled": 0,
+    "WebhookInventory": true,
+    "WebhookInventoryInterval": 10,
+    "WebhookUserID": "",
+    "WebhookGlitchPingID": "",
+    "DiscordBot_Token": "",
+    "DiscordBot_Enabled": 0,
+    "DiscordBot_UserID": "",
+    "Biome_Notifer_Windy": "Message",
+    "Biome_Notifer_Rainy": "Message",
+    "Biome_Notifer_Sandstorm": "Message",
+    "Biome_Notifer_Hell": "Message",
+    "Biome_Notifer_Starfall": "Message",
+    "Biome_Notifer_Corruption": "Message",
+    "Biome_Notifer_Null": "Message",
+    "Biome_Notifer_Glitched": "Ping",
+    "WebhookAuraImages": 1,
+    "WebhookRollSendMinimum": 1000,
+    "WebhookRollPingMinimum": 10000,
+    "Biome_Notifer_Snowy": "Message",
+    "Biome_Region": [
+        1,
+        939,
+        171,
+        29
+    ],
+    "EnableAutoMerchant": 0,
+    "ItemExchangeJester": 0,
+    "purchase_amount_button": [
+        726,
+        584
+    ],
+    "purchase_button": [
+        686,
+        633
+    ],
+    "merchant_open_button": [
+        676,
+        901
+    ],
+    "merchant_name_ocr_pos": [
+        737,
+        702,
+        470,
+        40
+    ],
+    "item_name_ocr_pos": [
+        729,
+        367,
+        539,
+        22
+    ],
+    "first_item_slot_pos": [
+        572,
+        709
+    ],
+    "Merchant_Webhook": [],
+    "Mari_AutoBuyItems": {
+    },
+    "Jester_AutoBuyItems": {
+    },
+    "merchant_dialogue_box": [
+        763,
+        726
+    ],
+    "CraftingSlot1": "None",
+    "CraftingSlot2": "None",
+    "CraftInterval": 20,
+    "PrivateServerLink": "",
+    "Biome_Notifer_Graveyard": "Message",
+    "Biome_Notifer_Pumpkin_Moon": "Message",
+    "CraftingSlot3": "None"
+}
