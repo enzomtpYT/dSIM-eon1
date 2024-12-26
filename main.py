@@ -17,10 +17,13 @@ if os.path.exists(os.path.join(os.path.dirname(__file__), "config.json")):
         print("Removing old config.json file from DSIM folder.")
         os.remove(os.path.join(os.path.dirname(__file__), "config.json"))
 
-# Check if config.json exists, if not create it
+# Check if config.json exists, if not copy config.example.json to config.json in appdata
 if not os.path.exists(os.path.expandvars("%appdata%/DSIM/config.json")):
-    with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as file:
-        json.dump({}, file)
+    print("Copying config.example.json to %appdata%/DSIM/config.json...")
+    with open(os.path.join(os.path.dirname(__file__), "config.example.json"), "r") as src:
+        with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as dst:
+            dst.write(src.read())
+    print("Successfully copied config.example.json to %appdata%/DSIM/config.json.")
 
 from pynput import keyboard
 from PIL import ImageGrab, Image, ImageTk
