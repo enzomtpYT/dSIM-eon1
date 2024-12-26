@@ -670,7 +670,9 @@ class MacroLoop:
             print(f"Opening merchant interface for {merchant_name}")
             
             x, y = merchant_open_button
-            ahk.click(x, y, button="left", coord_mode="Screen", click_count=3)
+            ahk.mouse_move(x, y)
+            time.sleep(0.1)
+            ahk.click(button="left", coord_mode="Screen", click_count=3)
             time.sleep(0.73)
 
             # Take a screenshot for the webhook
