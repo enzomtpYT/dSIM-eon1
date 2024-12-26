@@ -6,8 +6,8 @@ a = Analysis(
     pathex=['C:/Users/enzomtp-Laptop/Documents/Code/dSIM-eon1'],
     binaries=[],
     datas=[
-        ('images', 'images'),
-        ('modules/Azure-ttk-theme-2.1.0', 'modules/Azure-ttk-theme-2.1.0')  # Include Azure theme files
+        ('./modules/Azure-ttk-theme-2.1.0', './modules/Azure-ttk-theme-2.1.0'),
+        ('./images', './images')
     ],
     hiddenimports=[],
     hookspath=[],

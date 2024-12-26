@@ -19,11 +19,14 @@ if os.path.exists(os.path.join(os.path.dirname(__file__), "config.json")):
 
 # Check if config.json exists, if not copy config.example.json to config.json in appdata
 if not os.path.exists(os.path.expandvars("%appdata%/DSIM/config.json")):
-    print("Copying config.example.json to %appdata%/DSIM/config.json...")
-    with open(os.path.join(os.path.dirname(__file__), "config.example.json"), "r") as src:
+    print("Downloading default config.json to %appdata%/DSIM/config.json...")
+    response = requests.get("https://gist.enzomtp.party/enzomtp/bd77520047b2477288a056d4e45cd7c0/raw/HEAD/config.json")
+    if response.status_code == 200:
         with open(os.path.expandvars("%appdata%/DSIM/config.json"), "w") as dst:
-            dst.write(src.read())
-    print("Successfully copied config.example.json to %appdata%/DSIM/config.json.")
+            dst.write(response.text)
+        print("Successfully copied config.example.json to %appdata%/DSIM/config.json.")
+    else:
+        print("Failed to fetch the config file from the URL.")
 
 from pynput import keyboard
 from PIL import ImageGrab, Image, ImageTk
@@ -38,7 +41,7 @@ class DiscordMacroUI:
         self.root = root
         self.root.title("Improvement Sol's v1.6.0 (EON1)")
         self.root.configure(bg="#2C2F33")
-        self.root.iconbitmap(os.path.join("images", "game_ui", "icon.ico"))
+        self.root.iconbitmap(os.path.join(os.path.dirname(__file__), "images", "game_ui", "icon.ico"))
         self.dark_mode = True
         
         self.macro_loop = MacroLoop()
